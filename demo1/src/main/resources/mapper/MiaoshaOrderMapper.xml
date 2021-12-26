@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo1.mapper.MiaoshaOrderMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.demo1.domain.MiaoshaOrder">
+            <id property="miaoshaOrderId" column="miaosha_order_id" jdbcType="BIGINT"/>
+            <result property="userId" column="user_id" jdbcType="BIGINT"/>
+            <result property="orderId" column="order_id" jdbcType="BIGINT"/>
+            <result property="itemId" column="item_id" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        miaosha_order_id,user_id,order_id,
+        item_id
+    </sql>
+
+    <select id="findByUserIdAndItemId" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"></include>
+        where user_id = #{userId} and item_id = #{itemId}
+    </select>
+
+    <insert id="save" parameterMap="com.example.demo1.domain.MiaoshaOrder">
+        insert into miaosha_order
+        (user_id, order_id, item_id)
+        values (#{userId}, #{orderId}, #{itemId})
+    </insert>
+</mapper>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.demo1.mapper.MiaoshaItemMapper">
+
+    <resultMap id="BaseResultMap" type="com.example.demo1.domain.MiaoshaItem">
+            <id property="miaoshaId" column="miaosha_id" jdbcType="BIGINT"/>
+            <result property="itemId" column="item_id" jdbcType="BIGINT"/>
+            <result property="miaoshaPrice" column="miaosha_price" jdbcType="DECIMAL"/>
+            <result property="stockCount" column="stock_count" jdbcType="INTEGER"/>
+            <result property="startDate" column="start_date" jdbcType="TIMESTAMP"/>
+            <result property="endDate" column="end_date" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+        miaosha_id,item_id,miaosha_price,
+        stock_count,start_date,end_date
+    </sql>
+
+    <select id="findAll" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"></include>
+        from miaosha_item
+    </select>
+
+    <select id="findByItemId" resultMap="BaseResultMap">
+        select item.*,ms.stock_count,ms.start_date,ms.end_date,ms.miaosha_price from miaosha_item ms
+        left join item_inf item
+        on ms.item_id = item.item_id
+        where item.item_id = #{itemId}
+    </select>
+
+    <update id="reduceStock" parameterMap="com.example.demo1.domain.MiaoshaItem">
+        update miaosha_item
+        set stock_count = stock_count - 1
+        where item_id = #{itemId}
+    </update>
+</mapper>
