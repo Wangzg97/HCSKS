@@ -1,6 +1,6 @@
 package com.example.demo1.config;
 
-import com.example.demo1.interceptor.AccessInterceptor;
+import com.example.demo1.access.AccessInterceptor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
