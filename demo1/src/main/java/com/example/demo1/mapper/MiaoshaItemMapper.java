@@ -26,7 +26,7 @@ public interface MiaoshaItemMapper {
      * @param itemId
      * @return
      */
-    MiaoshaItem findByItemId(@Param("itemId") long itemId);
+    Map<String, Object> findByItemId(@Param("itemId") long itemId);
 
     /**
      *  更新秒杀商品库存

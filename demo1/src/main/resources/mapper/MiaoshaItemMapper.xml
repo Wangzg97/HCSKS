@@ -26,7 +26,7 @@
         left join item_inf item on ms.item_id = item.item_id
     </select>
 
-    <select id="findByItemId" resultMap="BaseResultMap">
+    <select id="findByItemId" resultType="map">
         select item.*,ms.stock_count,ms.start_date,ms.end_date,ms.miaosha_price from miaosha_item ms
         left join item_inf item
         on ms.item_id = item.item_id

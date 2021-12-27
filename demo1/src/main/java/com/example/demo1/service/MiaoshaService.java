@@ -25,4 +25,8 @@ public class MiaoshaService {
     public List<Map<String, Object>> listMiaoshaItem() {
         return miaoshaItemMapper.findAll();
     }
+
+    public Map<String, Object> getMiaoshaItemById(long itemId){
+        return miaoshaItemMapper.findByItemId(itemId);
+    };
 }
