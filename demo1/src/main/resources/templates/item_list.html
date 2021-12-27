@@ -25,17 +25,17 @@
                     <td>详情</td>
                 </tr>
                 <tr th:each="item, itemStat : ${itemList}">
-                    <td th:text="${item.itemName}"></td>
+                    <td th:text="${item.item_name}"></td>
                     <td>
-                        <img th:src="@{'/imgs/'+ ${item.itemImg}}"
+                        <img th:src="@{'/imgs/'+ ${item.item_img}}"
                              width="80" height="100"/>
                     </td>
-                    <td th:text="${item.itemPrice}"></td>
-                    <td th:text="${item.miaoshaPrice}"></td>
-                    <td th:text="${item.stockCount}"></td>
+                    <td th:text="${item.item_price}"></td>
+                    <td th:text="${item.miaosha_price}"></td>
+                    <td th:text="${item.stock_count}"></td>
                     <td>
                         <a th:href="'/item/item_detail.html?itemId='
-							+ ${item.itemId}">秒杀</a>
+							+ ${item.item_id}">秒杀</a>
                     </td>
                 </tr>
             </table>

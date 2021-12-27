@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Map;
 
 @Service
 public class MiaoshaService {
@@ -21,7 +22,7 @@ public class MiaoshaService {
     @Autowired
     MiaoshaOrderMapper miaoshaOrderMapper;
 
-    public List<MiaoshaItem> listMiaoshaItem() {
+    public List<Map<String, Object>> listMiaoshaItem() {
         return miaoshaItemMapper.findAll();
     }
 }

@@ -5,6 +5,7 @@ import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
+import java.util.Map;
 
 /**
 * @author wangzg
@@ -18,7 +19,7 @@ public interface MiaoshaItemMapper {
      * 获取全部秒杀商品
      * @return
      */
-    List<MiaoshaItem> findAll();
+    List<Map<String, Object>> findAll();
 
     /**
      * 根据商品id查询秒杀商品

@@ -40,7 +40,7 @@ public class ItemController {
             return html;
         }
         //查询秒杀商品列表存入redis缓存
-        List<MiaoshaItem> itemList = miaoshaService.listMiaoshaItem();
+        List<Map<String, Object>> itemList = miaoshaService.listMiaoshaItem();
         IWebContext ctx = new WebContext(request, response, request.getServletContext(), request.getLocale(), Map.of("user", userInf, "itemList", itemList));
         //渲染静态的html页面
         html = thymeleafViewResolver.getTemplateEngine().process("item_list", ctx);
