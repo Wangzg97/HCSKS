@@ -52,14 +52,14 @@ public class UserController {
         out.flush();
         out.close();
     }
-    @PostMapping("proLogin")
+    @PostMapping("/proLogin")
     @ResponseBody
     public Result<Boolean> proLogin(HttpServletRequest request, HttpServletResponse response, LoginVo loginVo) {
         //从cookie获取分布式sessionID
         String token = CookieUtil.getSessionId(request, response);
         if (token!=null) {
             //验证码错误
-            if (userService.checkVerifyCode(token, loginVo.getVercode())){
+            if (!userService.checkVerifyCode(token, loginVo.getVercode())){
                 return Result.error(CodeMsg.REQUEST_ILLEGAL);
             }
             UserInf userInf = getByToken(response, token);

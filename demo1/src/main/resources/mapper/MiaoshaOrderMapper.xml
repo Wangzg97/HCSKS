@@ -22,7 +22,7 @@
         where user_id = #{userId} and item_id = #{itemId}
     </select>
 
-    <insert id="save" parameterMap="com.example.demo1.domain.MiaoshaOrder">
+    <insert id="save" parameterType="com.example.demo1.domain.MiaoshaOrder">
         insert into miaosha_order
         (user_id, order_id, item_id)
         values (#{userId}, #{orderId}, #{itemId})

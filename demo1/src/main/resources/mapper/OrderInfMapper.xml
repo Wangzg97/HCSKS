@@ -24,7 +24,7 @@
         pay_date
     </sql>
 
-    <insert id="saveOrder" parameterMap="com.example.demo1.domain.OrderInf" useGeneratedKeys="true" keyProperty="orderId">
+    <insert id="saveOrder" parameterType="com.example.demo1.domain.OrderInf" useGeneratedKeys="true" keyProperty="orderId">
         insert into order_inf
         (user_id,item_id,item_name,order_num,order_price,order_channel,order_status,create_date)
         values (#{userId}, #{itemId},#{itemName},#{orderNum},#{orderPrice},#{orderChannel},#{orderStatus},#{createDate})

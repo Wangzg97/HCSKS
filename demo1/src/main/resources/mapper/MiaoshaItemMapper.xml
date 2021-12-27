@@ -31,7 +31,7 @@
         where item.item_id = #{itemId}
     </select>
 
-    <update id="reduceStock" parameterMap="com.example.demo1.domain.MiaoshaItem">
+    <update id="reduceStock" parameterType="com.example.demo1.domain.MiaoshaItem">
         update miaosha_item
         set stock_count = stock_count - 1
         where item_id = #{itemId}
